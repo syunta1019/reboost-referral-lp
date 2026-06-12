@@ -1,0 +1,20 @@
+# dependencies
+/node_modules
+
+# next.js build
+/.next
+/out
+
+# misc
+.DS_Store
+*.log
+npm-debug.log*
+
+# env
+.env*.local
+
+# deploy artifacts
+/out/.git
+
+# build zip
+*.zip

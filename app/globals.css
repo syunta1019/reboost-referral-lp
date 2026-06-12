@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: #fafafa;
+  color: #333333;
+  font-feature-settings: "palt" 1; /* 日本語の字詰めを最適化（高級感） */
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.22);
+}
+
+/* 控えめなスクロール表示アニメーション */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* リンク下線の微調整 */
+.link-underline {
+  background-image: linear-gradient(transparent calc(100% - 1px), currentColor 1px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.3s ease;
+}
+.group:hover .link-underline,
+.link-underline:hover {
+  background-size: 100% 100%;
+}
